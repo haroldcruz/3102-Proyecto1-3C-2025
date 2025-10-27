@@ -1,0 +1,56 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="RedVerde.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - RedVerde</title>
+
+    <!-- CSS global -->
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+
+<body>
+<form runat="server">
+
+    <!-- Skip link -->
+    <a href="#MainContent" class="skip-link">Saltar al contenido</a>
+
+    <!-- Header + Menú (BEM, sin JS) -->
+    <header class="menu">
+        <!-- Toggle accesible -->
+        <input type="checkbox" id="menu-toggle" class="menu__toggle" />
+        <label for="menu-toggle" class="menu__label" aria-label="Abrir menú">Menú ☰</label>
+
+        <!-- Lista -->
+        <ul id="menuList" class="menu__list" role="navigation" aria-label="Menú principal">
+            <li id="liInicio" runat="server" class="menu__item">
+                <a runat="server" href="~/Default.aspx" class="menu__link">Inicio</a>
+            </li>
+            <li id="liProductos" runat="server" class="menu__item">
+                <a runat="server" href="~/Productos.aspx" class="menu__link">Productos</a>
+            </li>
+            <li id="liNoticias" runat="server" class="menu__item">
+                <a runat="server" href="~/Noticias.aspx" class="menu__link">Noticias</a>
+            </li>
+            <li id="liContacto" runat="server" class="menu__item">
+                <a runat="server" href="~/Contacto.aspx" class="menu__link">Contacto</a>
+            </li>
+        </ul>
+    </header>
+
+    <!-- Contenido principal -->
+    <main role="main" class="layout__container">
+        <asp:ContentPlaceHolder id="MainContent"  runat="server" />
+        <hr />
+        <footer class="footer">
+            <p class="footer__text">&copy; <%: DateTime.Now.Year %> - RedVerde</p>
+        </footer>
+    </main>
+
+</form>
+</body>
+</html>
